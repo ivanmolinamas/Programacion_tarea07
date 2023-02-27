@@ -7,8 +7,9 @@ package Tarea07;
  */
 public class Persona {
        
-    String nombre, apellidos, DNI;
-
+    private String nombre;
+    private String apellidos;
+    private String DNI;
     /**
      * @param nombre = Nombre de la persona titular
      * @param apellidos = Apellidos de la persona titular

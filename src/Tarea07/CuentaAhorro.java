@@ -7,7 +7,18 @@ package Tarea07;
  */
 public class CuentaAhorro extends CuentaBancaria {
     
-// tipo cuenta ahorro
-    
-    
+    private double tipoInteresAnual;
+
+    public CuentaAhorro(double tipoInteresAnual, Persona Titular, double saldo, String IBAN) {
+        super(Titular, saldo, IBAN);
+        this.tipoInteresAnual = tipoInteresAnual;
+    }
+
+    public double getTipoInteresAnual() {
+        return tipoInteresAnual;
+    }
+
+    public void setTipoInteresAnual(double tipoInteresAnual) {
+        this.tipoInteresAnual = tipoInteresAnual;
+    }
 }
