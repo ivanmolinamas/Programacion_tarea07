@@ -18,7 +18,7 @@ public class Principal {
         System.out.println("");
         System.out.println("Menu Principal");
         System.out.println("1 - Abrir una nueva cuenta");
-        System.out.println("2 - Ver un listado de las cuents disponibles (código de cuenta, titular y saldo actual).");
+        System.out.println("2 - Ver un listado de las cuents disponibles.");
         System.out.println("3 - Obtener los datos de una cuenta concreta.");
         System.out.println("4 - Realizar ingreso en una cuenta.");
         System.out.println("5 - Retirar efectivo de una cuenta.");
@@ -32,7 +32,7 @@ public class Principal {
     public static void main(String[] args) {
         int menu;
         String nombreTitular, apellidosTitular, DNITitular, IBAN, listaEntidades, listaEntidadesEmp,buscaIBAN;
-        double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto,ingreso,retirar;
+        double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto,ingreso,retirar,obtenersaldo;
         int opcionCuenta;
         String [] listaCuentas;
         boolean menuCuenta = false;
@@ -178,7 +178,7 @@ public class Principal {
                     System.out.println("Introduzca el importe a retirar");
                     retirar=sc.nextDouble();
                     if (banco.retiradaCuenta(buscaIBAN, retirar)==true) {
-                        System.out.println("Retirada realizado con exito");
+                        System.out.println("Retirada realizada con exito");
                     }else{
                         System.out.println("No se pudo realizar la retirada");
                     }
@@ -190,7 +190,8 @@ public class Principal {
                     buscaIBAN=sc.next();
                     
                     if (banco.obtenerSaldo(buscaIBAN)!= -1) {
-                        System.out.println(banco.obtenerSaldo(buscaIBAN));
+                        obtenersaldo=banco.obtenerSaldo(buscaIBAN);
+                        System.out.println("El saldo es: " + obtenersaldo);
                     }else{
                         System.out.println("No existe la cuenta");
                     }

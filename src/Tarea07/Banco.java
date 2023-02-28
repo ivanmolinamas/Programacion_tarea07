@@ -75,11 +75,21 @@ public class Banco {
         CuentaBancaria c = this.buscarCuenta(IBAN);
 
         if (c != null) {
+            boolean sePuedeRetirar = false;
+
             if (c.getSaldo() - retirada > 0) {
-                c.setSaldo(c.getSaldo() - retirada);
-                return true;
+                sePuedeRetirar = true;
+            } else if (c instanceof CuentaCorrienteEmpresa) {
+                CuentaCorrienteEmpresa aux = (CuentaCorrienteEmpresa)c;
+                if(Math.abs(c.getSaldo()-retirada)<= aux.getMaximoDescubierto()){
+                    sePuedeRetirar=true;
+                }
             }
-            return false;
+            if (sePuedeRetirar) {
+             c.setSaldo(c.getSaldo() - retirada);   
+            }
+            
+            return sePuedeRetirar;
         }
         return false;
     }
