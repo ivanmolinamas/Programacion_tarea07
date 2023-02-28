@@ -43,6 +43,6 @@ public abstract class CuentaBancaria implements Imprimible {
 
     @Override
     public String devolverInfoString() {
-        return "CuentaBancaria{" + "Titular=" + Titular + ", saldo=" + saldo + ", IBAN=" + IBAN + '}';
+        return "CuentaBancaria{" + "Titular= " + Titular.devolverInfoString() + ", saldo= " + saldo + ", IBAN= " + IBAN + '}';
     }
 }

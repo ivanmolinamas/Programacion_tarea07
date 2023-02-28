@@ -23,6 +23,6 @@ public class CuentaAhorro extends CuentaBancaria {
 
     @Override
     public String devolverInfoString() {
-        return super.devolverInfoString() + ", tipoInteresAnual=" + tipoInteresAnual ;
+        return super.devolverInfoString() + ", tipoInteresAnual= " + tipoInteresAnual ;
     }
 }

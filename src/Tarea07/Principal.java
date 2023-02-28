@@ -15,6 +15,7 @@ public class Principal {
 
     public static int mostrarMenu() {
         int opcion;
+        System.out.println("");
         System.out.println("Menu Principal");
         System.out.println("1 - Abrir una nueva cuenta");
         System.out.println("2 - Ver un listado de las cuents disponibles (código de cuenta, titular y saldo actual).");
@@ -30,9 +31,10 @@ public class Principal {
 
     public static void main(String[] args) {
         int menu;
-        String nombreTitular, apellidosTitular, DNITitular, IBAN, listaEntidades, listaEntidadesEmp;
-        double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto;
+        String nombreTitular, apellidosTitular, DNITitular, IBAN, listaEntidades, listaEntidadesEmp,buscaIBAN;
+        double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto,ingreso,retirar;
         int opcionCuenta;
+        String [] listaCuentas;
         boolean menuCuenta = false;
         boolean checkIBAN = false;
 
@@ -139,23 +141,63 @@ public class Principal {
                     break;
                 case 2:
                     //Ver un listado de las cuents disponibles (código de cuenta, titular y saldo actual)
+                    listaCuentas=banco.listadoCuentas();
+                    for (int i = 0; i < listaCuentas.length; i++) {
+                        System.out.println(listaCuentas[i]);
+                    }
                     
                     break;
                 case 3:
                     //Obtener los datos de una cuenta concreta. 
+                    System.out.println("Introduce el IBAN de la cuenta para obtener datos");
+                    buscaIBAN=sc.next();
 
+                    if (banco.informacionCuenta(buscaIBAN)!=null) {
+                        System.out.println(banco.informacionCuenta(buscaIBAN));
+                    }else{
+                        System.out.println("Cuenta no encontrada");
+                    }
                     break;
                 case 4:
                     // Realizar ingreso en una cuenta
+                    System.out.println("Introduzca el IBAN");
+                    buscaIBAN=sc.next();
+                    System.out.println("Introduzca el importe a ingresar");
+                    ingreso=sc.nextDouble();
+                    if (banco.ingresoCuenta(buscaIBAN, ingreso)==true) {
+                        System.out.println("Ingreso realizado con exito");
+                    }else{
+                        System.out.println("No se pudo realizar el ingreso");
+                    }
+                    
                     break;
                 case 5:
                     //Retirar efectivo de una cuenta
+                    System.out.println("Introduzca el IBAN");
+                    buscaIBAN=sc.next();
+                    System.out.println("Introduzca el importe a retirar");
+                    retirar=sc.nextDouble();
+                    if (banco.retiradaCuenta(buscaIBAN, retirar)==true) {
+                        System.out.println("Retirada realizado con exito");
+                    }else{
+                        System.out.println("No se pudo realizar la retirada");
+                    }
+                    
                     break;
                 case 6:
                     //Consultar el saldo actual de una cuenta
+                    System.out.println("Introduzca el IBAN");
+                    buscaIBAN=sc.next();
+                    
+                    if (banco.obtenerSaldo(buscaIBAN)!= -1) {
+                        System.out.println(banco.obtenerSaldo(buscaIBAN));
+                    }else{
+                        System.out.println("No existe la cuenta");
+                    }
+                    
                     break;
                 case 7:
-                    System.out.println("Opcion salir de la apliacion");
+                    System.out.println("Salir de la apliacion");
                     //Salir de la apliacion
                     break;
                 default:
@@ -163,8 +205,8 @@ public class Principal {
                     break;
             }
 
-        } while (menu != 6);
-        System.out.println("Salida. Hasta luego!");
+        } while (menu != 7);
+        System.out.println("Hasta luego!");
     }
 
 }

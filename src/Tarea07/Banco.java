@@ -16,7 +16,7 @@ public class Banco {
     }
 
     //metodo abrir cuenta
-    private boolean abrirCuenta(CuentaBancaria cuenta) {
+    public boolean abrirCuenta(CuentaBancaria cuenta) {
         // comprueba que hay espacio en el array
         if (this.numeroCuentas >= this.MAX_CUENTAS) {
             System.out.println("El sistema esta lleno");
@@ -26,6 +26,7 @@ public class Banco {
         CuentaBancaria existe = this.buscarCuenta(cuenta.getIBAN());
         if (existe != null) {
             System.out.println("La cuenta bancaria ya existe");
+            return false;
         }
         // si hay espacio y no existe, se añade la cuenta al array y se devuelve true
         this.cuentas[this.numeroCuentas] = cuenta;
@@ -70,7 +71,7 @@ public class Banco {
         return false;
     }
 
-    public boolean returadaCuenta(String IBAN, double retirada) {
+    public boolean retiradaCuenta(String IBAN, double retirada) {
         CuentaBancaria c = this.buscarCuenta(IBAN);
 
         if (c != null) {
