@@ -41,5 +41,9 @@ public class CuentaCorrienteEmpresa extends CuentaCorriente {
     public void setComisionFijaDescubierto(double comisionFijaDescubierto) {
         this.comisionFijaDescubierto = comisionFijaDescubierto;
     }
- 
+  @Override
+    public String devolverInfoString() {
+        return super.devolverInfoString()+ ", maximoDescubierto= " + maximoDescubierto + ", tipoIneteresDescubierto= " + tipoIneteresDescubierto + ", comisionFijaDescubierto= " + comisionFijaDescubierto ;
+    } 
+  
 }

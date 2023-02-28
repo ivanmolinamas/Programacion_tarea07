@@ -5,7 +5,7 @@ package Tarea07;
  *
  * @author ivanm
  */
-public class Persona {
+public class Persona implements Imprimible {
        
     private String nombre;
     private String apellidos;
@@ -46,11 +46,7 @@ public class Persona {
     }
 
     @Override
-    public String toString() {
+    public String devolverInfoString() {
         return "Persona{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", DNI=" + DNI + '}';
-    }
-    
-    
-    
-    
+    }  
 }

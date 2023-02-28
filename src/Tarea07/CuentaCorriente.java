@@ -21,5 +21,9 @@ public abstract class CuentaCorriente extends CuentaBancaria {
     public void setListaEntidades(String listaEntidades) {
         this.listaEntidades = listaEntidades;
     }
-
+    
+      @Override
+    public String devolverInfoString() {
+        return super.devolverInfoString()+ ", listaEntidades= " + listaEntidades ;
+    }   
 }

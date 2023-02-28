@@ -1,4 +1,3 @@
-
 package Tarea07;
 
 /**
@@ -21,4 +20,10 @@ public class CuentaCorrientePersonal extends CuentaCorriente {
     public void setComisionMantenimiento(double comisionMantenimiento) {
         this.comisionMantenimiento = comisionMantenimiento;
     }
+
+    @Override
+    public String devolverInfoString() {
+        return super.devolverInfoString()+ ", comisionMantenimiento= " + comisionMantenimiento;
+    }
+    
 }

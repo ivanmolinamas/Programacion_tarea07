@@ -13,7 +13,7 @@ public class Principal {
      * @param args the command line arguments
      */
     
-    static Scanner teclado = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);
     
     public static int mostrarMenu(){
         int opcion;
@@ -24,8 +24,8 @@ public class Principal {
         System.out.println("4 - Retirar efectivo de una cuenta.");
         System.out.println("5 - Consultar el saldo actual de una cuenta.");
         System.out.println("6 - Salir de la apliacion.");
-        opcion = teclado.nextInt();
-        teclado.nextLine();
+        opcion = sc.nextInt();
+        sc.nextLine();
         return opcion;
     }
 
@@ -43,18 +43,21 @@ public class Principal {
                     //Ver un listado de las cuents disponibles (código de cuenta, titular y saldo actual)
                     break;
                 case 3:
-                    //Obtener los datos de una cuenta concreta. Realizar ingreso en una cuenta
+                    //Obtener los datos de una cuenta concreta. 
                     break;    
                 case 4:
-                    //Retirar efectivo de una cuenta
+                   // Realizar ingreso en una cuenta
                     break;
                 case 5:
-                    //Consultar el saldo actual de una cuenta
+                    //Retirar efectivo de una cuenta
                     break;
                 case 6:
+                    //Consultar el saldo actual de una cuenta
+                    break; 
+                case 7:
                     System.out.println("Opcion salir de la apliacion");
                     //Salir de la apliacion
-                    break; 
+                    break;
                 default:
                     System.out.println("Opcion incorrecta");
                     break;

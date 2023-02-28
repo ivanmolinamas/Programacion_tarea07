@@ -1,11 +1,11 @@
-
 package Tarea07;
 
 /**
  *
  * @author ivanm
  */
-public abstract class CuentaBancaria {
+public abstract class CuentaBancaria implements Imprimible {
+
     // creo una objeto que contendra el titular de la clase Persona
     private Persona Titular;
     private double saldo;
@@ -40,5 +40,9 @@ public abstract class CuentaBancaria {
     public void setIBAN(String IBAN) {
         this.IBAN = IBAN;
     }
-   
+
+    @Override
+    public String devolverInfoString() {
+        return "CuentaBancaria{" + "Titular=" + Titular + ", saldo=" + saldo + ", IBAN=" + IBAN + '}';
+    }
 }
