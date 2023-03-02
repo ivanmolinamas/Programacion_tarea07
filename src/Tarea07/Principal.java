@@ -36,11 +36,12 @@ public class Principal {
 
         // se declaran las variables necesarias fuera del bucle
         int menu;
-        boolean salir = true;
+        
         String nombreTitular, apellidosTitular, DNITitular, IBAN, listaEntidades, listaEntidadesEmp, buscaIBAN;
         double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto, ingreso, retirar, obtenersaldo;
         int opcionCuenta;
         String[] listaCuentas;
+        boolean salir = true;
         boolean menuCuenta = false;
         boolean checkIBAN = false;
 
@@ -172,9 +173,11 @@ public class Principal {
                         break;
                     case 3:
                         //Obtener los datos de una cuenta concreta. 
+                        // se pide el iban
                         System.out.println("Introduce el IBAN de la cuenta para obtener datos");
                         buscaIBAN = sc.next();
-
+                        // con un if llamamos al metodo informacionCuenta y le pasamos el argumento de la variabel iban pedida
+                        // si encuentra imprime información, si es null imprimimos que no existe
                         if (banco.informacionCuenta(buscaIBAN) != null) {
                             System.out.println(banco.informacionCuenta(buscaIBAN));
                         } else {
