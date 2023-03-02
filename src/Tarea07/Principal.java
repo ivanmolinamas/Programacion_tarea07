@@ -26,8 +26,9 @@ public class Principal {
         Persona titular;
         CuentaBancaria cuenta = null;
 
-        //con un do-while se crea el bucle del menu hasta seleccionar el 7
-        // se usa el metodo mostrarMenu para lanzar el menu y recuperar un numero
+        //con un while se crea el bucle del menu hasta seleccionar el 7,
+        // la variable salir es un booleano con true, en la opcion 7 el booleano es false.
+        
         while (salir) {
 
             try {
