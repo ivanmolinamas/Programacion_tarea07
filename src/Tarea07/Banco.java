@@ -10,6 +10,7 @@ public class Banco {
     private final int MAX_CUENTAS = 100;
     private int numeroCuentas;
 
+    //constructor para crear el array
     public Banco() {
         this.cuentas = new CuentaBancaria[this.MAX_CUENTAS];
         this.numeroCuentas = 0;

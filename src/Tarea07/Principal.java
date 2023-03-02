@@ -5,42 +5,19 @@ import java.util.Scanner;
 
 /**
  *
- * @author ivanm
+ * @author ivan Molina Mas
  */
 public class Principal {
-
-    static Scanner sc = new Scanner(System.in);
-
-//    public static int mostrarMenu() {
-//        int opcion;
-//
-//        System.out.println("");
-//        System.out.println("Menu Principal");
-//        System.out.println("1 - Abrir una nueva cuenta");
-//        System.out.println("2 - Ver un listado de las cuents disponibles.");
-//        System.out.println("3 - Obtener los datos de una cuenta concreta.");
-//        System.out.println("4 - Realizar ingreso en una cuenta.");
-//        System.out.println("5 - Retirar efectivo de una cuenta.");
-//        System.out.println("6 - Consultar el saldo actual de una cuenta.");
-//        System.out.println("7 - Salir de la apliacion.");
-//        try {
-//            opcion = sc.nextInt();
-//            sc.nextLine();
-//        } catch (InputMismatchException e) {
-//
-//            System.out.println("No es un numero");
-//        }
-//        return opcion;
-//    }
     public static void main(String[] args) {
 
-        // se declaran las variables necesarias fuera del bucle
-        int menu;
+        Scanner sc = new Scanner(System.in);
         
+        // se declaran las variables necesarias fuera del bucle
         String nombreTitular, apellidosTitular, DNITitular, IBAN, listaEntidades, listaEntidadesEmp, buscaIBAN;
         double saldo, tipoInteres, mantenimientoPer, maxDescubierto, interesDescubierto, comisionDescubierto, ingreso, retirar, obtenersaldo;
         int opcionCuenta;
         String[] listaCuentas;
+        int menu;
         boolean salir = true;
         boolean menuCuenta = false;
         boolean checkIBAN = false;
